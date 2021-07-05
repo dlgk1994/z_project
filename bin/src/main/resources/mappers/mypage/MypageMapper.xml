@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.mypage.mybatis.MypageMapper">
+	<resultMap type="com.care.root.mypage.dto.CartDTO" id="cart">
+		<id property="cart_no" column="cart_no"/>
+		<result property="product_num" column="product_num"/>
+		<result property="product_name" column="product_name"/>
+		<result property="payment_total" column="payment_total"/>
+		<result property="cart_state" column="cart_state"/>
+		<result property="cart_photo" column="cart_photo"/>
+		<result property="member_id" column="member_id"/>
+	</resultMap>
+	<resultMap type="com.care.root.mypage.dto.ReviewDTO" id="review">
+		<id property="review_no" column="review_no"/>
+		<result property="review_content" column="review_content"/>
+		<result property="review_score" column="review_score"/>
+		<result property="review_file1" column="review_file1"/>
+		<result property="review_file2" column="review_file2"/>
+		<result property="review_file3" column="review_file3"/>
+		<result property="review_id" column="review_id"/>
+		<result property="review_writedate" column="review_writedate"/>
+	</resultMap>
+	
+	<!-- 장바구니 -->
+	<select id="myCart" resultMap="cart">
+		select B.* from(select rownum rn, A.* from
+		(select * from cart order by cart_no desc)A)B where rn between #{s} and #{e}
+	</select>
+	<!-- 장바귄 전체 목록 수 -->
+	<select id="mycartCount" resultType="Integer">
+		select count(*) from cart
+	</select>
+	<!-- 장바구니 내역 삭제 -->
+	<delete id="deleteCart">
+		delete from cart where cart_no=#{cart_no} and member_id=#{member_id}
+	</delete>
+	
+	
+	
+	
+	<!-- 내 리뷰 저장 -->
+	<insert id="reviewSave">
+		<!-- insert into board_review(review_no,review_content,review_score,org_file_name,save_file_name,review_id) 
+		values(review_seq.nextval,#{review_content},#{review_score},#{org_file_name},#{save_file_name},#{review_id})
+		 --> 
+		insert into board_review(review_no,review_content,review_score,review_file1,review_file2,review_file3,review_id) 
+		values(review_seq.nextval,#{review_content},#{review_score},#{review_file1},#{review_file2},#{review_file3},#{review_id})
+	</insert>
+	<!-- 내 리뷰 전체 목록 -->
+	<select id="myReview" resultMap="review">
+		select * from board_review
+	</select>
+	<!-- 내 리뷰 전체 목록 수 -->
+	<select id="myreviewCount" resultType="Integer">
+		select count(*) from board_review
+	</select>
+	<!-- 내 리뷰 클릭 시 상세보기 -->
+	<select id="selectReview" resultMap="review">
+		select * from board_review where review_no=#{review_no}
+	</select>
+	<!-- 내 리뷰 수정 -->
+	<update id="modifyReviewSave">
+		update board_review set review_content=#{review_content},  
+		review_file1=#{review_file1}, review_file2=#{review_file2}, review_file3=#{review_file3} where review_no=#{review_no}
+	</update>
+	<!-- 내 리뷰 삭제 -->
+	<delete id="deleteReview">
+		delete from board_review where review_no=#{review_no}
+	</delete>
+	
+	
+	
+	
+</mapper>

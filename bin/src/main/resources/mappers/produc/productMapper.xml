@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.product.mybatis.userProductMapper">
+	<resultMap type="com.care.root.admin.product.dto.productDTO" id="product">
+		<id property="productNum" column="product_num"/>
+		<result property="productName" column="product_name"/>
+		<result property="productTitle" column="product_title"/>
+		<result property="productCategory" column="product_category"/>
+		<result property="productContent" column="product_content"/>		
+		<result property="productDate" column="product_data"/>
+		<result property="productCompany" column="product_company"/>		
+		<result property="productQuantity" column="product_quantity"/>
+		<result property="productPee" column="product_pee"/>
+	</resultMap>
+
+	<resultMap type="com.care.root.admin.product.dto.productImageDTO" id="productImg">
+			<id property="fileNo" column="file_no"/>
+			<result property="filePath" column="file_path"/>
+			<result property="fileName" column="file_name"/>
+			<result property="fileLevel" column="file_level"/>
+			<result property="parentBoardNo" column="parent_board_no"/>
+  </resultMap>
+  
+	<select id="productList" resultMap="product">
+		select * from product
+	</select>
+	
+	<select id="attachmentList" parameterType="string" resultMap="productImg">
+		SELECT * FROM PRODUCTIMAGE
+		WHERE parent_board_no = #{productNum}
+		AND FILE_LEVEL = 0
+	</select>
+	
+	<select id="adminProductView" resultMap="product">
+		select * from product where product_num=#{productNum}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
