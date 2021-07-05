@@ -174,6 +174,13 @@
             <option value="apple">apple
          </select>
       </div>
+      <div>
+         <select name="productPeriod" class="category2" style="border: 2px solid skyblue; border-radius: 5px;">
+            <option value="3일">3일
+            <option value="7일">7일
+            <option value="1개월">1개월
+         </select>
+      </div>
       
       <div style="margin: 50px 0 0 900px;">
          상품코드<br>

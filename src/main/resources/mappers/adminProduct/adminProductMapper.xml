@@ -13,6 +13,7 @@
 		<result property="productCompany" column="product_company"/>		
 		<result property="productQuantity" column="product_quantity"/>
 		<result property="productPee" column="product_pee"/>
+		<result property="productPeriod" column="product_period"/>
 	</resultMap>
 	
 	
@@ -48,8 +49,8 @@
 		
 	</select>
 	<insert id="insertProduct" parameterType="map">
-		insert into product(product_num,product_name,product_title,product_content,product_quantity,product_pee,product_company,product_category)
-			values(#{productNum},#{productName},#{productTitle},#{productContent},#{productQuantity},#{productPee},#{productCompany},#{productCategory})
+		insert into product(product_num,product_name,product_title,product_content,product_quantity,product_pee,product_company,product_category,product_period)
+			values(#{productNum},#{productName},#{productTitle},#{productContent},#{productQuantity},#{productPee},#{productCompany},#{productCategory},#{productPeriod})
 	</insert>
 	
 	<select id="adminProductView" resultMap="product">
@@ -77,7 +78,8 @@
 		product_content=#{productContent},			
 		product_company=#{productCompany},
 	   	product_quantity=#{productQuantity},
-	   	product_pee=#{productPee} 
+	   	product_pee=#{productPee},
+	   	product_period=#{productPeriod} 
 	   	where product_num=#{productNum}
 	</update>		
 

@@ -19,7 +19,7 @@ public class ProductController {
 	public String adminProductList(Model model/*,@RequestParam String productNum*/){
 		ps.productList(model);
 		
-		//ps.selectImg(productNum,model);//수정 페이지에서 썸네일 불러오기 
+		ps.thumselectImg(model);//불러오기 
 		return "Product/ProductList";
 	}
 		
@@ -27,7 +27,7 @@ public class ProductController {
 	@RequestMapping("Product/ProductView")
 	public String adminProductView(@RequestParam String productNum, Model model) {
 		ps.productView(productNum,model);
-		ps.selectImg(productNum,model);//수정 페이지에서 썸네일 불러오기 
+		ps.selectImg(productNum,model);//썸네일 불러오기 
 		return "Product/ProductView";
 	}
 		
@@ -37,5 +37,7 @@ public class ProductController {
 		
 		return "Product/productSearch";
 	}
+	
+	
 	
 }

@@ -101,7 +101,7 @@ public class adminController {
 		map.put("productPee",product.getProductPee());
 		map.put("productQuantity",product.getProductQuantity());
 		map.put("productContent",product.getProductContent());
-		
+		map.put("productPeriod",product.getProductPeriod());
 		
 		
 		// 파일 업로드 확인

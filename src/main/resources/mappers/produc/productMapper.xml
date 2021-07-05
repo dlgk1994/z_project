@@ -13,6 +13,7 @@
 		<result property="productCompany" column="product_company"/>		
 		<result property="productQuantity" column="product_quantity"/>
 		<result property="productPee" column="product_pee"/>
+		<result property="productPeriod" column="product_period"/>
 	</resultMap>
 
 	<resultMap type="com.care.root.admin.product.dto.productImageDTO" id="productImg">
@@ -22,9 +23,28 @@
 			<result property="fileLevel" column="file_level"/>
 			<result property="parentBoardNo" column="parent_board_no"/>
   </resultMap>
+  <resultMap type="com.care.root.product.dto.userProductDTO" id="thumproductImg">
+			<result property="productNum" column="product_num"/>
+			<result property="productName" column="product_name"/>
+			<result property="productTitle" column="product_title"/>
+			<result property="productCategory" column="product_category"/>
+			<result property="productContent" column="product_content"/>		
+			<result property="productDate" column="product_data"/>
+			<result property="productCompany" column="product_company"/>		
+			<result property="productQuantity" column="product_quantity"/>
+			<result property="productPee" column="product_pee"/>
+			<result property="productPeriod" column="product_period"/>
+			<result property="fileNo" column="file_no"/>
+			<result property="filePath" column="file_path"/>
+			<result property="fileName" column="file_name"/>
+			<result property="fileLevel" column="file_level"/>
+			<result property="parentBoardNo" column="parent_board_no"/>
+  </resultMap>
   
-	<select id="productList" resultMap="product">
-		select * from product
+	<select id="productList" resultMap="thumproductImg">
+		<!-- select * from product -->
+		select * from v_product where file_level=0
+	
 	</select>
 	
 	<select id="attachmentList" parameterType="string" resultMap="productImg">
@@ -37,6 +57,11 @@
 		select * from product where product_num=#{productNum}
 	</select>
 	
+	<select id="attachmentThumList" resultMap="thumproductImg">
+		<!-- select * from product pro inner join productImage a on(pro.product_num = a.parent_board_no)
+		and pro.product_num = a.parent_board_no and a.file_level =0 -->
+		select * from v_product where file_level=0
+	</select>
 </mapper>
 
 

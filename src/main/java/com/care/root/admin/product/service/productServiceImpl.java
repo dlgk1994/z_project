@@ -92,7 +92,7 @@ public class productServiceImpl implements productService{
 		dto.setProductPee(mul.getParameter("productPee"));
 		dto.setProductQuantity(mul.getParameter("productQuantity"));
 		dto.setProductContent(mul.getParameter("productContent"));
-		
+		dto.setProductPeriod(mul.getParameter("productPeriod"));
 		
 		
 		productFileService pfs = new productFileServiceImpl();

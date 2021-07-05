@@ -16,16 +16,25 @@ public class userProductServiceImpl implements userProductService{
 		
 		
 	}
+	//상품상세보기
 	@Override
 	public void productView(String productNum, Model model) {
 		model.addAttribute("productView",mapper.adminProductView(productNum));
 		
 	}
+	//상품상세보기 이미지
 	@Override
 	public void selectImg(String productNum, Model model) {
 		model.addAttribute("productImg",mapper.attachmentList(productNum));
 		
 	}
+	@Override
+	public void thumselectImg(Model model) {
+		model.addAttribute("attachmentThumList"+mapper.attachmentThumList());
+		
+	};
+	
+	
 	
 
 }

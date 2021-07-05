@@ -100,11 +100,11 @@
            	    </tr>
               		<tr>
            	        <th>대여 기간</th>
-                   	<td><%-- ${dto.product } --%></td>
+                   	<td>${productView.productPeriod}</td>
                	</tr>
             	   <tr>
             	       <th>대여료</th>
-            	       <td>${productView.productPee}원</td>
+            	       <td>${productView.productPee} 원</td>
 				</tr>
 				<tr>
 					<th>수량</th>
@@ -139,7 +139,6 @@
 			<div class="wrap">
        			<h3>상품정보</h3>
         		<div class="inner">
-        	    	<p>상품정보 상품정보</p>
         	       ${productView.productContent }
        		    </div>
       		</div>

@@ -175,6 +175,13 @@
 				<option value="apple" <c:if test="${productView.productCompany=='apple'}"> selected </c:if>>apple
 			</select>
 		</div>
+		<div>
+		<select name="productPeriod" class="category2" style="border: 2px solid skyblue; border-radius: 5px;">
+            <option value="3일" <c:if test="${productView.productPeriod=='3일'}"> selected </c:if>>3일
+            <option value="7일" <c:if test="${productView.productPeriod=='7일'}"> selected </c:if>>7일
+            <option value="1개월" <c:if test="${productView.productPeriod=='1개월'}"> selected </c:if>>1개월
+         </select>
+      </div>
 		
 		<div style="margin: 50px 0 0 900px;">
 			상품코드<br>

@@ -17,8 +17,17 @@ public class productDTO {
 	private String productCompany; // 상품 제조사 -
 	private String productQuantity; // 상품 수량 -
 	private String productPee; // 상품가격 -
-
+	private String productPeriod; //상품대여기간
 	
+	public String getProductPeriod() {
+		return productPeriod;
+	}
+	public void setProductPeriod(String productPeriod) {
+		this.productPeriod = productPeriod;
+	}
+	public void setProductDate(String productDate) {
+		this.productDate = productDate;
+	}
 	public String getProductNum() {
 		return productNum;
 	}
@@ -88,7 +97,7 @@ public class productDTO {
 		return "productDTO [productNum=" + productNum + ", productName=" + productName + ", productTitle="
 				+ productTitle + ", productCategory=" + productCategory + ", productContent=" + productContent
 				+ ", productDate=" + productDate + ", productCompany=" + productCompany + ", productQuantity="
-				+ productQuantity + ", productPee=" + productPee + "]";
+				+ productQuantity + ", productPee=" + productPee + ",productPeriod =" + productPeriod +"]";
 	}
 	
 	

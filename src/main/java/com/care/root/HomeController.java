@@ -6,17 +6,20 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.care.root.product.service.userProductService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
+	@Autowired userProductService ps;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -36,8 +39,14 @@ public class HomeController {
 		return "home";
 		
 	}
+//	@RequestMapping("main")
+//	public String main() {
+//		return "main";
+//	}
+	//main 
 	@RequestMapping("main")
-	public String main() {
+	public String mainProduct(Model model) {
+		ps.productList(model);
 		return "main";
 	}
 }

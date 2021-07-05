@@ -10,4 +10,6 @@ public interface userProductService {
 
 	public void productView(String productNum, Model model);
 
+	public void thumselectImg( Model model);
+
 }

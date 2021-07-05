@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.care.root.admin.product.dto.productDTO;
 import com.care.root.admin.product.dto.productImageDTO;
+import com.care.root.product.dto.userProductDTO;
 
 public interface userProductMapper {
 
@@ -13,6 +14,10 @@ public interface userProductMapper {
 	public productImageDTO attachmentList(String productNum);
 
 	public productDTO adminProductView(String productNum);
+
+	public ArrayList<userProductDTO> attachmentThumList();
+
+	
 
 	
 
